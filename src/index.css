@@ -1,0 +1,478 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 23% 96%;
+    --foreground: 0 0% 7%;
+    --card: 40 23% 96%;
+    --card-foreground: 0 0% 7%;
+    --popover: 40 23% 96%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 37 23% 69%;
+    --primary-foreground: 0 0% 7%;
+    --secondary: 40 20% 94%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 40 10% 90%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 28 53% 65%;
+    --accent-foreground: 0 0% 7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 37 23% 75%;
+    --input: 37 23% 75%;
+    --ring: 37 23% 69%;
+    --radius: 0.5rem;
+    --sidebar-background: 40 23% 96%;
+    --sidebar-foreground: 0 0% 7%;
+    --sidebar-primary: 37 23% 69%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 40 20% 94%;
+    --sidebar-accent-foreground: 0 0% 7%;
+    --sidebar-border: 37 23% 75%;
+    --sidebar-ring: 37 23% 69%;
+
+    --color-bg: #F8F6F0;
+    --color-text: #111111;
+    --color-gold: #C7B89A;
+    --color-secondary: #6B6B6B;
+    --color-terracotta: #D4A373;
+    --color-white: #ffffff;
+  }
+
+  * {
+    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  button {
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input, textarea, select {
+    font-family: 'Inter', sans-serif;
+    min-height: 44px;
+  }
+}
+
+/* ============================================
+   HERO VORTEX
+   ============================================ */
+
+.vortex-hero {
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .vortex-hero {
+    height: 85vh;
+  }
+}
+
+.vortex-canvas {
+  cursor: grab;
+}
+
+.vortex-canvas:active {
+  cursor: grabbing;
+}
+
+/* ============================================
+   TYPOGRAPHY - Fluid sizes
+   ============================================ */
+
+.hero-headline {
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  color: var(--color-text);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-shadow: 0 2px 20px rgba(248, 246, 240, 0.8);
+}
+
+.hero-subheadline {
+  font-size: clamp(0.875rem, 1.4vw, 1.125rem);
+  color: var(--color-text);
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 24px auto 0;
+  opacity: 0.85;
+  text-shadow: 0 1px 10px rgba(248, 246, 240, 0.9);
+}
+
+.hero-hint {
+  font-size: 0.625rem;
+  color: var(--color-secondary);
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-shadow: 0 1px 4px rgba(248, 246, 240, 0.8);
+  margin-top: 2rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+/* ============================================
+   BUTTONS & CTAs
+   ============================================ */
+
+.hero-cta-primary {
+  background: var(--color-gold);
+  color: var(--color-text);
+  border-radius: 6px;
+  font-size: clamp(0.8125rem, 1vw, 0.875rem);
+  font-weight: 500;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, opacity 0.2s ease-out;
+  display: inline-block;
+}
+
+.hero-cta-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(199, 184, 154, 0.4);
+  opacity: 0.9;
+}
+
+.hero-cta-primary:active {
+  transform: scale(0.97);
+}
+
+.hero-cta-secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid rgba(17, 17, 17, 0.35);
+  border-radius: 6px;
+  font-size: clamp(0.8125rem, 1vw, 0.875rem);
+  transition: transform 0.2s ease-out, background 0.2s ease-out, border-color 0.2s ease-out;
+  display: inline-block;
+}
+
+.hero-cta-secondary:hover {
+  background: rgba(199, 184, 154, 0.1);
+  border-color: var(--color-gold);
+}
+
+.hero-cta-secondary:active {
+  transform: scale(0.97);
+}
+
+.event-cta {
+  background: var(--color-gold);
+  color: var(--color-text);
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.event-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(199, 184, 154, 0.3);
+}
+
+/* ============================================
+   MEMBERSHIP CARDS
+   ============================================ */
+
+.membership-card {
+  border: 1px solid rgba(199, 184, 154, 0.25);
+  border-radius: 12px;
+  background: rgba(248, 246, 240, 0.7);
+  backdrop-filter: blur(16px);
+}
+
+.membership-card[data-highlight="true"] {
+  border: 2px solid var(--color-gold);
+}
+
+.membership-cta {
+  border: 1px solid var(--color-gold);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease-out;
+}
+
+.membership-cta[data-highlight="true"] {
+  background: var(--color-gold);
+  color: var(--color-text);
+}
+
+.membership-cta[data-highlight="false"] {
+  background: transparent;
+  color: var(--color-gold);
+}
+
+.membership-cta:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+
+.glass-card {
+  background: rgba(248, 246, 240, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(199, 184, 154, 0.25);
+  border-radius: 12px;
+}
+
+/* ============================================
+   IMAGE ZOOM HOVER
+   ============================================ */
+
+.image-zoom {
+  overflow: hidden;
+}
+
+.image-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ============================================
+   SECTION PADDING
+   ============================================ */
+
+.section-padding {
+  padding-left: clamp(1rem, 5vw, 3rem);
+  padding-right: clamp(1rem, 5vw, 3rem);
+}
+
+/* ============================================
+   UNDERLINE HOVER
+   ============================================ */
+
+.underline-hover {
+  position: relative;
+}
+
+.underline-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-text);
+  transition: width 0.3s ease;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   SCROLL INDICATOR
+   ============================================ */
+
+.scroll-indicator {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+/* ============================================
+   FAQ CARDS
+   ============================================ */
+
+.faq-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.faq-card:hover {
+  box-shadow: 0 4px 24px rgba(199, 184, 154, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta);
+}
+
+/* ============================================
+   SWIPER
+   ============================================ */
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-gold) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-gold) !important;
+}
+
+/* ============================================
+   MOBILE MENU
+   ============================================ */
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(248, 246, 240, 0.96);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.mobile-menu-link {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  color: var(--color-text);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-link:hover {
+  color: var(--color-terracotta);
+}
+
+/* ============================================
+   REDUCE MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .vortex-canvas {
+    display: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .vortex-hero {
+    background: linear-gradient(135deg, #F8F6F0 0%, #E8E4DA 100%);
+  }
+}
+
+/* ============================================
+   RESPONSIVE HELPERS
+   ============================================ */
+
+@media (max-width: 640px) {
+  .hero-hint {
+    display: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ============================================
+   TAP ZONES
+   ============================================ */
+
+@layer components {
+  .tap-zone {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ============================================
+   UTILITY
+   ============================================ */
+
+.font-display {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-terracotta {
+  color: var(--color-terracotta);
+}
